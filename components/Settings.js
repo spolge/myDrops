@@ -9,7 +9,9 @@ export default function Settings() {
   };
   return (
     <View style = {styles.container}>
-      <Text>Settings</Text>
+      <Text style= {styles.text}>Settings</Text>
+      <Text style= {styles.text}>User</Text>
+      <Text style= {styles.text}>Current UserName</Text>
       <TouchableOpacity style={styles.button} onPress={handleSignOutPress}>
         <Text style={styles.buttonText}>Sign out</Text>
       </TouchableOpacity>
@@ -26,12 +28,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-
+  text:{
+    marginBottom: 20,
+  },
    button: {
     backgroundColor: '#00B4D8',
     padding: 10,
     borderRadius: 5,
-    marginBottom: 12,
+    
   },
   buttonText: {
     color: 'white',
