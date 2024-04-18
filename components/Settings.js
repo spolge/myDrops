@@ -5,7 +5,7 @@ export default function Settings() {
   const navigation = useNavigation()
 
   const handleSignOutPress = () => {
-    navigation.navigate('SignIn')
+    navigation.navigate('Welcome')
   };
   return (
     <View style = {styles.container}>

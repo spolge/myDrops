@@ -6,6 +6,7 @@ import myDrops from '../MyDrops';
 import medList from '../MedList';
 import Calendar from '../Calendar';
 import settings from '../Settings';
+import UsersMedicationsEdit from '../UsersMedicationsEdit'
 
 const Tab = createBottomTabNavigator();
 

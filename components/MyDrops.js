@@ -1,21 +1,22 @@
 import React from 'react';
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, TouchableOpacity } from 'react-native';
 import UsersMedications from './UsersMedications';
+import {useNavigation } from "@react-navigation/native";
 
 export default function MyDrops() {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
       <Text style={styles.heading}>Users EyeDrops</Text>
       <ScrollView style={styles.mymedlist}>
+        <TouchableOpacity  onPress={() => {}}>
         <UsersMedications />
+      </TouchableOpacity>
+       <TouchableOpacity  onPress={() => {}}>
         <UsersMedications />
-        <UsersMedications />
-        <UsersMedications />
-        <UsersMedications />
-        <UsersMedications />
-        <UsersMedications />
-        <UsersMedications />
-        <UsersMedications />
+      </TouchableOpacity>
+        
       </ScrollView>
     </View>
   );
