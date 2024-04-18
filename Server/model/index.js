@@ -13,14 +13,12 @@ main()
   const medicationSchema = new mongoose.Schema({
   name: { type: String, required: true },
   eye: {type: String, required: false},
-  frequency:{type: String, required: true}
+  frequency:{type: String, required: false}
   }, {
     timestamps:false
   }
 );
 
-
 const Medications = mongoose.model('Medications', medicationSchema);
-
 
 module.exports = Medications
