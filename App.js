@@ -3,19 +3,21 @@ import { StyleSheet, Text, View } from 'react-native';
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import React from 'react'
-import SignInScreen from './components/verificationc components/SignInScreen';
-import SignUpScreen from './components/verificationc components/SignUpScreen';
-import WelcomeScreen from './components/verificationc components/WelcomeScreen';
+import SignInScreen from './components/navigation components/SignInScreen';
+import SignUpScreen from './components/navigation components/SignUpScreen';
+import WelcomeScreen from './components/navigation components/WelcomeScreen';
+import MainNavigator from './components/navigation components/MainNavigator';
 
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Welcome" component={WelcomeScreen}/>
+      <Stack.Navigator >
+        <Stack.Screen name="Welcome" component={WelcomeScreen} options={{ headerShown: false }}/>
         <Stack.Screen name="SignIn" component={SignInScreen}/>
         <Stack.Screen name="SignUp" component={SignUpScreen}/>
+        <Stack.Screen name="Main" component={MainNavigator} options={{ headerShown: false }}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

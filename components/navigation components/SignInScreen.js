@@ -1,10 +1,20 @@
-import React from 'react'
-import { StyleSheet, Text, View, TouchableOpacity, TextInput } from 'react-native';
+import React from 'react';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image } from 'react-native';
+import {useNavigation } from "@react-navigation/native";
+import image from '../../assets/temporaryLogo.webp'
 
-export default function SignUpScreen() {
+export default function SignInScreen(props) {
+   const navigation = useNavigation();
+
+  const handleSignInPress = () => {
+    navigation.navigate('Main');
+  };
+
+
   return (
     <View style={styles.container}>
-      <Text style= {styles.heading}>Sign Up</Text>
+      <Image source={image} style ={{width: 100, height: 100 }}/>
+      <Text style= {styles.heading}>Sign In</Text>
       <TextInput
         style={styles.input}
         placeholder="Email"
@@ -13,12 +23,8 @@ export default function SignUpScreen() {
         style={styles.input}
         placeholder="password"
       />
-      <TextInput
-        style={styles.input}
-        placeholder="Confirm password"
-      />
-      <TouchableOpacity style={styles.button} onPress={() => {}}>
-        <Text style={styles.buttonText}>Sign Up</Text>
+      <TouchableOpacity style={styles.button} onPress={handleSignInPress}>
+        <Text style={styles.buttonText}>Sign In</Text>
       </TouchableOpacity>
     </View>
   );
