@@ -11,7 +11,7 @@ async function postMedications (medication) {
 }
 
 async function getPatients () {
-  let data = await Patients.find({});
+  let data = await Patients.find({}).populate("medication").exec();
   return data;
 }
 

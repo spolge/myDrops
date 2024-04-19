@@ -1,15 +1,15 @@
 const mongoose = require('mongoose')
+const { Schema } = mongoose;
 
 const patientSchema = new mongoose.Schema({
   email: { type: String, required: true },
   password:{type: String, required: true},
-  medication:{type:String, required: true},
-  frequency:{type: Number, required: true},
-  eye:{type:String, required: true}
-  }, {
+  medication:[{type:Schema.Types.ObjectId, ref:"Medications"}],
+  }, 
+    {
     timestamps:false
-  }
-);
+    }
+  );
 
 const Patients = mongoose.model('patient', patientSchema);
 
