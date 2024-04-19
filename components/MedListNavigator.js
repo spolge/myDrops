@@ -1,16 +1,13 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { StyleSheet } from 'react-native';
-import UsersMedications from './UsersMedications';
 import {useNavigation, useRoute  } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import MedList from './MedList';
 import MedListEdit from './MedListEdit';
 
-
 export default function MedListNavigator() {
- 
-
   const Stack = createStackNavigator();
+ 
 
   return (
     <Stack.Navigator >

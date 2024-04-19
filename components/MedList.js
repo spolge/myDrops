@@ -1,7 +1,27 @@
-import { StyleSheet, Text, View, ScrollView, TextInput,TouchableOpacity } from 'react-native';
-import AllMedications from './AllMedications';
+import { StyleSheet, Text, View, ScrollView, TextInput,TouchableOpacity,  } from 'react-native';
+import React, {useEffect, useState} from 'react';
+import Medications from './Medications';
+import {useNavigation, useRoute  } from "@react-navigation/native";
+
+const url = 'http://10.10.22.37:3000/medications';
 
 export default function MedList() {
+    const [medications, useMedications] = useState([]);
+
+   const getMedications = async () => {
+    try {
+      const response = await fetch(url);
+      const json = await response.json();
+      useMedications(json)
+    } catch (error) {
+      console.error(error);
+    } 
+  };
+
+  useEffect(() => {
+    getMedications();
+  }, []);
+  
   return (
      <View style={styles.container}>
       <Text style={styles.heading}>Medications</Text>
@@ -10,11 +30,11 @@ export default function MedList() {
         placeholder="Search..."
       />
       <ScrollView style={styles.mymedlist}>
-        <AllMedications/>
+        {medications.map((medication) => <Medications key = {medication._id} medication = {medication}></Medications>)}
       </ScrollView>
-      <TouchableOpacity style={styles.button} onPress={() => {}}>
+      {/* <TouchableOpacity style={styles.button} onPress={() => {}}>
         <Text style={styles.buttonText}>Add Medication</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
     </View>
   
     

@@ -10,24 +10,7 @@ import MedListNavigator from '../MedListNavigator';
 const Tab = createBottomTabNavigator();
 
 export default function MainNavigator() {
-
-
-   const getMedications = async () => {
-    try {
-      const response = await fetch('http://10.10.22.37:3000/medications');
-      const json = await response.json();
-    } catch (error) {
-      console.error(error);
-    } 
-  };
-
-
-  useEffect(() => {
-    getMedications();
-  }, []);
-
-
-
+  
   return (
     <Tab.Navigator>
       <Tab.Screen
@@ -38,7 +21,7 @@ export default function MainNavigator() {
           headerShown: false,
           tabBarLabelStyle: { color: 'black' },
         }}
-        initialParams = {{key: 'test'}}
+        // initialParams = {{key: 'test'}}
       /> 
     
       <Tab.Screen
@@ -49,7 +32,6 @@ export default function MainNavigator() {
           headerShown: false,
           tabBarLabelStyle: { color: 'black' }
         }}
-        // initialParams = {{key: 'test'}}
       />
       <Tab.Screen
         name='Calendar'

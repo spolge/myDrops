@@ -7,6 +7,7 @@ import SignInScreen from './components/navigation components/SignInScreen';
 import SignUpScreen from './components/navigation components/SignUpScreen';
 import WelcomeScreen from './components/navigation components/WelcomeScreen';
 import MainNavigator from './components/navigation components/MainNavigator';
+import Test from './test';
 
 
 export default function App() {
@@ -15,6 +16,7 @@ export default function App() {
     //add area safe view
     <NavigationContainer>
       <Stack.Navigator >
+        {/* <Stack.Screen name = "test" component= {Test}></Stack.Screen> */}
         <Stack.Screen name="Welcome" component={WelcomeScreen} options={{ headerShown: false }}/>
         <Stack.Screen name="SignIn" component={SignInScreen}/>
         <Stack.Screen name="SignUp" component={SignUpScreen}/>

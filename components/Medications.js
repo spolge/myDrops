@@ -1,12 +1,12 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 import image from '../assets/temporaryBottleLid.webp';
-import {useNavigation } from "@react-navigation/native";
+import {useNavigation, useRoute } from "@react-navigation/native";
 
-export default function AllMedications() {
+export default function AllMedications({medication}) {
   const navigation = useNavigation();
 
   const handleEditScreen = () => {
-    navigation.navigate('MedListEdit')
+    navigation.navigate('MedListEdit',{medication})
   };
   
   return (
@@ -14,7 +14,7 @@ export default function AllMedications() {
    <View style = {styles.layout}>
     <Image source={image} style = {styles.image} />
     <View style = {styles.content}>
-      <Text style = {styles.description}>Latanoprost</Text>
+      <Text style = {styles.description}>{medication.name}</Text>
     </View>
   </View>      
     </TouchableOpacity>
