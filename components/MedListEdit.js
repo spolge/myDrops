@@ -1,10 +1,12 @@
 import { StyleSheet, Text, View, Image} from 'react-native';
+import image from '../assets/temporaryBottle.webp'
 
 
-export default function UsersMedications() {
+export default function MedListEdit() {
   return (
    <View style = {styles.layout}>
-    <Text>hello</Text>
+    <Image source={image} style = {styles.image} />
+    <Text>hello medList edit medications</Text>
   </View>      
   );
 }
@@ -15,20 +17,11 @@ const styles = StyleSheet.create({
     marginHorizontal: 24,
     flexDirection: 'row',
     marginVertical: 8,
+    backgroundColor: 'white'
   },
   image: {
     borderRadius: 12,
     height: 100,
     width: 100,
-  },
-  content: {
-    flex: 2,
-    padding: 12,
-  },
-  
-  description: {
-    fontSize: 12,
-    marginTop: 4,
-    color: '#280d5F'
   },
 });

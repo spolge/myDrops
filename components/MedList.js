@@ -11,7 +11,6 @@ export default function MedList() {
       />
       <ScrollView style={styles.mymedlist}>
         <AllMedications/>
-        
       </ScrollView>
       <TouchableOpacity style={styles.button} onPress={() => {}}>
         <Text style={styles.buttonText}>Add Medication</Text>

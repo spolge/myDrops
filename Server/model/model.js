@@ -1,4 +1,4 @@
-const Medications = require('./index')
+const Medications = require('./schemas/medications')
 
 async function getMedications () {
   let data = await Medications.find({});

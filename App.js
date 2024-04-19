@@ -8,10 +8,11 @@ import SignUpScreen from './components/navigation components/SignUpScreen';
 import WelcomeScreen from './components/navigation components/WelcomeScreen';
 import MainNavigator from './components/navigation components/MainNavigator';
 
-const Stack = createStackNavigator();
 
 export default function App() {
+  const Stack = createStackNavigator();
   return (
+    //add area safe view
     <NavigationContainer>
       <Stack.Navigator >
         <Stack.Screen name="Welcome" component={WelcomeScreen} options={{ headerShown: false }}/>

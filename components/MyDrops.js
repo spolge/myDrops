@@ -1,26 +1,24 @@
-import React from 'react';
-import { StyleSheet, Text, View, ScrollView, TouchableOpacity } from 'react-native';
-import UsersMedications from './UsersMedications';
+import { StyleSheet, Text, View, TouchableOpacity, ScrollView} from 'react-native';
 import {useNavigation } from "@react-navigation/native";
+import UsersMedications from './UsersMedications';
+
 
 export default function MyDrops() {
-  const navigation = useNavigation();
+    const navigation = useNavigation();
 
+  
   return (
     <View style={styles.container}>
       <Text style={styles.heading}>Users EyeDrops</Text>
       <ScrollView style={styles.mymedlist}>
-        <TouchableOpacity  onPress={() => {}}>
         <UsersMedications />
-      </TouchableOpacity>
-       <TouchableOpacity  onPress={() => {}}>
-        <UsersMedications />
-      </TouchableOpacity>
-        
+        <UsersMedications />        
       </ScrollView>
-    </View>
+    </View> 
+      
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {
@@ -35,5 +33,15 @@ const styles = StyleSheet.create({
   mymedlist: {
     width: '100%',
     height: '100%',
+  },
+  button: {
+    backgroundColor: '#00B4D8',
+    padding: 10,
+    borderRadius: 5,
+    
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 16,
   },
 });

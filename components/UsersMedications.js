@@ -1,8 +1,16 @@
-import { StyleSheet, Text, View, Image} from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 import image from '../assets/temporaryBottle.webp'
+import {useNavigation } from "@react-navigation/native";
 
 export default function UsersMedications() {
+  const navigation = useNavigation();
+
+  const handleEditScreen = () => {
+    navigation.navigate('myDropsEdit')
+  };
+
   return (
+    <TouchableOpacity  onPress={handleEditScreen}>
    <View style = {styles.layout}>
     <Image source={image} style = {styles.image} />
     <View style = {styles.content}>
@@ -12,6 +20,7 @@ export default function UsersMedications() {
       <Text style = {styles.description}>reminders</Text>
     </View>
   </View>      
+    </TouchableOpacity>
   );
 }
 
@@ -21,9 +30,8 @@ const styles = StyleSheet.create({
     marginHorizontal: 24,
     flexDirection: 'row',
     marginVertical: 8,
-    // borderWidth: 1,
-    // borderColor: 'black',
-    // borderStyle: 'solid',
+    backgroundColor: 'white'
+    
   },
   image: {
     borderRadius: 12,

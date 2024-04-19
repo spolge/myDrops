@@ -1,34 +1,55 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { StyleSheet } from 'react-native';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialCommunityIcons, FontAwesome, Feather } from '@expo/vector-icons';
-import myDrops from '../MyDrops';
-import medList from '../MedList';
 import Calendar from '../Calendar';
 import settings from '../Settings';
+import MyDropsNavigator from '../MyDropsNavigator';
+import MedListNavigator from '../MedListNavigator';
 
 const Tab = createBottomTabNavigator();
 
 export default function MainNavigator() {
+
+
+   const getMedications = async () => {
+    try {
+      const response = await fetch('http://10.10.22.37:3000/medications');
+      const json = await response.json();
+    } catch (error) {
+      console.error(error);
+    } 
+  };
+
+
+  useEffect(() => {
+    getMedications();
+  }, []);
+
+
+
   return (
     <Tab.Navigator>
       <Tab.Screen
-        name='myDrops'
-        component={myDrops}
+        name='myDrop'
+        component={MyDropsNavigator}
         options={{
           tabBarIcon: () => <FontAwesome name="eyedropper" size={24} color="black" />,
           headerShown: false,
-          tabBarLabelStyle: { color: 'black' }
+          tabBarLabelStyle: { color: 'black' },
         }}
-      />
+        initialParams = {{key: 'test'}}
+      /> 
+    
       <Tab.Screen
         name='Medication List'
-        component={medList}
+        component={MedListNavigator}
         options={{
           tabBarIcon: () => <MaterialCommunityIcons name="pill" size={24} color="black" />,
           headerShown: false,
           tabBarLabelStyle: { color: 'black' }
         }}
+        // initialParams = {{key: 'test'}}
       />
       <Tab.Screen
         name='Calendar'
