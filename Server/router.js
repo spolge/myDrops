@@ -5,8 +5,13 @@ const controller = require('./controllers/medications');
 router.get('/medications', controller.getMedications);
 router.post('/medications', controller.postMedications);
 
+
 router.get('/patients', controller.getPatients);
-router.post('/patients',controller.postPatients)
+router.get('/patients/:patientid', controller.getOnePatient);
+router.post('/patients',controller.postPatients);
+
+
+
 
 
 

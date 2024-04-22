@@ -3,6 +3,8 @@ import image from '../assets/temporaryBottle.webp'
 
 
 export default function MedListEdit({route: {params: {medication}}}) {
+
+  
   
   return (
    <View style = {styles.layout}>

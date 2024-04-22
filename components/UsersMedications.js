@@ -2,11 +2,12 @@ import { StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 import image from '../assets/temporaryBottle.webp'
 import {useNavigation } from "@react-navigation/native";
 
-export default function UsersMedications() {
+export default function UsersMedications({med}) {
   const navigation = useNavigation();
 
+
   const handleEditScreen = () => {
-    navigation.navigate('myDropsEdit')
+    navigation.navigate('myDropsEdit', {med})
   };
 
   return (
@@ -14,7 +15,7 @@ export default function UsersMedications() {
    <View style = {styles.layout}>
     <Image source={image} style = {styles.image} />
     <View style = {styles.content}>
-      <Text>Medication Name</Text>
+      <Text>{med.name}</Text>
       <Text style = {styles.description}>Which Eye</Text>
       <Text style = {styles.description}>How Often</Text>
       <Text style = {styles.description}>reminders</Text>

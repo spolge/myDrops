@@ -30,6 +30,21 @@ async function getPatients(req, res) {
   }
 }
 
+async function getOnePatient(req, res) {
+   try {
+    let id = req.params.patientid
+    console.log(id)
+    let patients = await model.getPatientById(id);
+    console.log(patients)
+    res.send(patients).status(200);
+  } catch (err) {
+    console.log(err);
+    res.send(err).status(500);
+  }
+}
+
+
+
 async function postPatients(req, res){
   try { 
     let patients = await model.postPatients(req.body);
@@ -46,5 +61,6 @@ module.exports = {
   getMedications,
   postMedications,
   getPatients,
-  postPatients
+  postPatients,
+  getOnePatient,
 }

@@ -15,8 +15,13 @@ async function getPatients () {
   return data;
 }
 
-async function postPatients(medication) {
-  return await Patients.create(medication);
+async function getPatientById (id) {
+  let data = await Patients.findById(id).populate("medication").exec();
+  return data;
+}
+
+async function postPatients(patient) {
+  return await Patients.create(patient);
 }
 
 
@@ -24,6 +29,7 @@ module.exports = {
   getMedications,
   postMedications,
   getPatients,
-  postPatients
+  postPatients,
+  getPatientById
 }
 

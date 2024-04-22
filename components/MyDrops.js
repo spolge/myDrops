@@ -1,36 +1,43 @@
 import { StyleSheet, Text, View, TouchableOpacity, ScrollView} from 'react-native';
-import {useNavigation } from "@react-navigation/native";
 import UsersMedications from './UsersMedications';
 import React, {useEffect, useState} from 'react';
 
-const url = 'http://10.10.22.37:3000/patients';
+const url = 'http://10.10.22.37:3000/patients/66229daedf1438199990caff';
 
 
 export default function MyDrops() {
-    const [patients, usePatients] = useState([]);
+    const [patient, setPatient] = useState(null);
+    const [medArr, setMedArr] = useState([]);
 
-   const getPatients= async () => {
+
+   const getPatient= async () => {
     try {
       const response = await fetch(url);
       const json = await response.json();
-      usePatients(json)
+      setPatient(json)
     } catch (error) {
       console.error(error);
     } 
   };
 
   useEffect(() => {
-    getPatients();
+    getPatient();
   }, []);
 
-  console.log(patients)
+  useEffect(()=>{
+    if (patient) {
+      setMedArr(patient.medication);
+    }
+  }, [patient])
 
+      
   
   return (
     <View style={styles.container}>
       <Text style={styles.heading}>Users EyeDrops</Text>
       <ScrollView style={styles.mymedlist}>
-        <UsersMedications></UsersMedications>
+
+        {medArr.map((med) => <UsersMedications key = {med._id} med = {med} ></UsersMedications>)}
       
       </ScrollView>
     </View> 

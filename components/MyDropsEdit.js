@@ -2,13 +2,13 @@ import { StyleSheet, Text, View, Image} from 'react-native';
 import image from '../assets/temporaryBottle.webp'
 
 
-export default function MyDropsEdit() {
+export default function MyDropsEdit({route: {params: {med}}}) {
   return (
    <View style = {styles.layout}>
     <Image source={image} style = {styles.image} />
     <View style = {styles.container}>
-    <Text style ={styles.text}>MEDICATION NAME</Text>
-    <Text style ={styles.text}>Frequency</Text>
+    <Text style ={styles.text}>{med.name}</Text>
+    <Text style ={styles.text}>take this drop {med.frequency} times daily</Text>
     <Text style ={styles.text}>Which Eye</Text>
     </View>
 
@@ -35,6 +35,6 @@ const styles = StyleSheet.create({
     flexDirection: 'column'
   },
   text: {
-    marginTop: 10
+    marginTop: 8
   }
 });

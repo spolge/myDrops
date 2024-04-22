@@ -18,6 +18,7 @@ export default function WelcomeScreen(props) {
   return (
     <View style={styles.container}>
       <Image source={image} style ={{width: 100, height: 100 }}/>
+      <Text style = {styles.title}>myDrops</Text>
       <TouchableOpacity style={styles.button} onPress={handleSignInPress}>
         <Text style={styles.buttonText}>Sign In</Text>
       </TouchableOpacity>
@@ -40,9 +41,18 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 5,
     marginBottom: 12,
+    width: 100,
   },
   buttonText: {
     color: 'white',
     fontSize: 16,
+    textAlign:'center'
   },
+  title:{
+    fontWeight: 'bold',
+    fontSize: 24,
+    marginBottom: 8,
+    marginTop: -10,
+    color: '#03045E',
+  }
 });
