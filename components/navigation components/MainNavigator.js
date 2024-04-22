@@ -21,7 +21,6 @@ export default function MainNavigator() {
           headerShown: false,
           tabBarLabelStyle: { color: 'black' },
         }}
-        // initialParams = {{key: 'test'}}
       /> 
     
       <Tab.Screen

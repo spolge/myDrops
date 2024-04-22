@@ -1,10 +1,27 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
-import image from '../assets/temporaryBottle.webp'
+import image from '../assets/temporaryBottle.webp';
+import {useNavigation } from "@react-navigation/native";
 
 
 export default function MedListEdit({route: {params: {medication}}}) {
+   const navigation = useNavigation();
 
-  
+  const url = 'http://10.10.22.37:3000/medications/add'
+
+
+ const  addToMyDrops = async () => {
+   let response = await fetch(url, {
+      method: 'POST',
+      mode: "cors",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(medication)
+    });
+
+    navigation.navigate('myDrops');
+ }
+
   
   return (
    <View style = {styles.layout}>
@@ -15,7 +32,7 @@ export default function MedListEdit({route: {params: {medication}}}) {
       </View>
       
      <Text>take this medication {medication.frequency} times daily</Text>
-     <TouchableOpacity style={styles.button} onPress={() => {}}>
+     <TouchableOpacity style={styles.button} onPress={addToMyDrops}>
         <Text style={styles.buttonText}>Add to myDrops</Text>
       </TouchableOpacity>
     </View>

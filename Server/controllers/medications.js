@@ -55,10 +55,35 @@ async function postPatients(req, res){
 
 
 
+async function addMedicationToPatient(req, res){
+  console.log(req.body)
+  try { 
+    let patients = await model.addMedicationToPatient(req.body.name);
+    res.status(201).json(patients);
+  } catch (err) {
+    console.log(err);
+    res.send(err).status(500);
+  }
+}
+
+async function deletePatientsMed(req, res){
+  try { 
+    let removed = await model.removeMedicationFromPatient(req.body.name);
+    res.status(201).send(removed);
+  } catch (err) {
+    console.log(err);
+    res.send(err).status(500);
+  }
+}
+
+
+
 module.exports = {
   getMedications,
   postMedications,
   getPatients,
   postPatients,
   getOnePatient,
+  addMedicationToPatient,
+  deletePatientsMed
 }

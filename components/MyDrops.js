@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, TouchableOpacity, ScrollView} from 'react-native';
 import UsersMedications from './UsersMedications';
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useCallback} from 'react';
+import { useFocusEffect } from '@react-navigation/native';
 
 const url = 'http://10.10.22.37:3000/patients/66229daedf1438199990caff';
 
@@ -20,24 +21,28 @@ export default function MyDrops() {
     } 
   };
 
-  useEffect(() => {
+  useFocusEffect(useCallback(
+    () => {
     getPatient();
-  }, []);
-
-  useEffect(()=>{
+  }, []
+  ))
+  
+  useFocusEffect(useCallback(
+    ()=>{
     if (patient) {
       setMedArr(patient.medication);
     }
-  }, [patient])
-
-      
+  }, [patient]))
+        
   
   return (
     <View style={styles.container}>
       <Text style={styles.heading}>Users EyeDrops</Text>
       <ScrollView style={styles.mymedlist}>
+      
 
-        {medArr.map((med) => <UsersMedications key = {med._id} med = {med} ></UsersMedications>)}
+        
+        {medArr.length<1? (<Text>No Drops...</Text>) : medArr.map((med) => <UsersMedications key = {med._id} med = {med} ></UsersMedications>)}
       
       </ScrollView>
     </View> 
