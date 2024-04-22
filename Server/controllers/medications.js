@@ -41,8 +41,6 @@ async function getOnePatient(req, res) {
   }
 }
 
-
-
 async function postPatients(req, res){
   try { 
     let patients = await model.postPatients(req.body);
@@ -52,8 +50,6 @@ async function postPatients(req, res){
     res.send(err).status(500);
   }
 }
-
-
 
 async function addMedicationToPatient(req, res){
   console.log(req.body)
@@ -76,6 +72,17 @@ async function deletePatientsMed(req, res){
   }
 }
 
+async function editPatientsMed(req, res){
+  try { 
+    let edit = await model.removeMedicationFromPatient(/* this needs to bed edited */);
+    res.status(201).send(edit);
+  } catch (err) {
+    console.log(err);
+    res.send(err).status(500);
+  }
+}
+
+
 
 
 module.exports = {
@@ -85,5 +92,6 @@ module.exports = {
   postPatients,
   getOnePatient,
   addMedicationToPatient,
-  deletePatientsMed
+  deletePatientsMed,
+  editPatientsMed
 }

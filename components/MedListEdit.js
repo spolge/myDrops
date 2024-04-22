@@ -31,7 +31,7 @@ export default function MedListEdit({route: {params: {medication}}}) {
         <Text style= {styles.medText}>{medication.name}</Text>
       </View>
       
-     <Text>take this medication {medication.frequency} times daily</Text>
+     {/* <Text>take this medication {medication.frequency} times daily</Text> */}
      <TouchableOpacity style={styles.button} onPress={addToMyDrops}>
         <Text style={styles.buttonText}>Add to myDrops</Text>
       </TouchableOpacity>
@@ -72,5 +72,6 @@ const styles = StyleSheet.create({
   buttonText: {
     color: 'white',
     fontSize: 16,
+    textAlign: 'center'
   },
 });

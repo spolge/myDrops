@@ -57,6 +57,10 @@ async function removeMedicationFromPatient(medname) {
   return patient;
 }
 
+async function editPatientMedication (){
+  
+}
+
 
 
 module.exports = {

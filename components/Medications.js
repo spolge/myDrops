@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
-import image from '../assets/temporaryBottleLid.webp';
+import image from '../assets/temporaryBottle.webp';
 import {useNavigation, useRoute } from "@react-navigation/native";
 
 export default function AllMedications({medication}) {

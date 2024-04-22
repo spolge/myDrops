@@ -9,6 +9,8 @@ router.post('/medications/add', controller.addMedicationToPatient);
 
 router.delete('/medications/delete', controller.deletePatientsMed);
 
+router.put('/medications/edit', controller.editPatientsMed);
+
 router.get('/patients', controller.getPatients);
 router.get('/patients/:patientid', controller.getOnePatient);
 router.post('/patients',controller.postPatients);

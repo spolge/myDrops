@@ -2,6 +2,7 @@ import { StyleSheet, Text, View, TouchableOpacity, ScrollView} from 'react-nativ
 import UsersMedications from './UsersMedications';
 import React, {useEffect, useState, useCallback} from 'react';
 import { useFocusEffect } from '@react-navigation/native';
+import NoMedSkeleton from './noMedSkeleton';
 
 const url = 'http://10.10.22.37:3000/patients/66229daedf1438199990caff';
 
@@ -40,9 +41,12 @@ export default function MyDrops() {
       <Text style={styles.heading}>Users EyeDrops</Text>
       <ScrollView style={styles.mymedlist}>
       
-
+        {medArr.length<1? (
+        <NoMedSkeleton/>
+        )
         
-        {medArr.length<1? (<Text>No Drops...</Text>) : medArr.map((med) => <UsersMedications key = {med._id} med = {med} ></UsersMedications>)}
+        
+        : medArr.map((med) => <UsersMedications key = {med._id} med = {med} ></UsersMedications>)}
       
       </ScrollView>
     </View> 

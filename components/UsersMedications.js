@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
-import image from '../assets/temporaryBottle.webp'
+import image from '../assets/singledrop.webp'
 import {useNavigation } from "@react-navigation/native";
 
 export default function UsersMedications({med}) {
@@ -15,9 +15,9 @@ export default function UsersMedications({med}) {
    <View style = {styles.layout}>
     <Image source={image} style = {styles.image} />
     <View style = {styles.content}>
-      <Text>{med.name}</Text>
+      <Text style = {styles.title}>{med.name}</Text>
       <Text style = {styles.description}>Which Eye</Text>
-      <Text style = {styles.description}>{med.frequency}</Text>
+      <Text style = {styles.description}>take this medication {med.frequency}x daily</Text>
       <Text style = {styles.description}>reminders</Text>
     </View>
   </View>      
@@ -38,6 +38,11 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     height: 100,
     width: 100,
+  },
+  title: {
+    fontWeight: '600',
+    fontSize: 18
+
   },
   content: {
     flex: 2,
