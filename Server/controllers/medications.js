@@ -33,9 +33,7 @@ async function getPatients(req, res) {
 async function getOnePatient(req, res) {
    try {
     let id = req.params.patientid
-    console.log(id)
     let patients = await model.getPatientById(id);
-    console.log(patients)
     res.send(patients).status(200);
   } catch (err) {
     console.log(err);

@@ -53,6 +53,7 @@ const styles = StyleSheet.create({
   heading: {
     fontSize: 24,
     marginTop: 48,
+    fontWeight: '600'
   },
   mymedlist: {
     width: '100%',
@@ -63,6 +64,8 @@ const styles = StyleSheet.create({
     borderColor: 'gray',
     borderWidth: 1,
     paddingHorizontal: 8,
-    width: 120,
+    width: 240,
+    borderRadius: 16,
+    marginTop: 10,
   },
 });

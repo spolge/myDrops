@@ -22,6 +22,7 @@ export default function SignInScreen(props) {
       <TextInput
         style={styles.input}
         placeholder="password"
+        secureTextEntry
       />
       <TouchableOpacity style={styles.button} onPress={handleSignInPress}>
         <Text style={styles.buttonText}>Sign In</Text>

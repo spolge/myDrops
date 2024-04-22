@@ -20,10 +20,12 @@ export default function SignUpScreen() {
       <TextInput
         style={styles.input}
         placeholder="password"
+        secureTextEntry
       />
       <TextInput
         style={styles.input}
         placeholder="Confirm password"
+        secureTextEntry
       />
       <TouchableOpacity style={styles.button} onPress={handleSignUpPress}>
         <Text style={styles.buttonText}>Sign Up</Text>

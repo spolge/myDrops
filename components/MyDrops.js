@@ -55,6 +55,7 @@ const styles = StyleSheet.create({
   heading: {
     fontSize: 24,
     marginTop: 48,
+    fontWeight: '600'
   },
   mymedlist: {
     width: '100%',

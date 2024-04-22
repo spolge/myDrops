@@ -17,7 +17,7 @@ export default function UsersMedications({med}) {
     <View style = {styles.content}>
       <Text>{med.name}</Text>
       <Text style = {styles.description}>Which Eye</Text>
-      <Text style = {styles.description}>How Often</Text>
+      <Text style = {styles.description}>{med.frequency}</Text>
       <Text style = {styles.description}>reminders</Text>
     </View>
   </View>      

@@ -10,8 +10,8 @@ export default function Settings() {
   return (
     <View style = {styles.container}>
       <Text style= {styles.text}>Settings</Text>
-      <Text style= {styles.text}>User</Text>
-      <Text style= {styles.text}>Current UserName</Text>
+      <Text style= {styles.text}>Username: SPolge</Text>
+      <Text style= {styles.text}>Users email: sampolge@gmail.com</Text>
       <TouchableOpacity style={styles.button} onPress={handleSignOutPress}>
         <Text style={styles.buttonText}>Sign out</Text>
       </TouchableOpacity>

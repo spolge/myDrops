@@ -11,8 +11,9 @@ export default function MedListEdit({route: {params: {medication}}}) {
     <Image source={image} style = {styles.image} />
     <View>
       <View style= {styles.title}>
-        <Text>{medication.name}</Text>
+        <Text style= {styles.medText}>{medication.name}</Text>
       </View>
+      
      <Text>take this medication {medication.frequency} times daily</Text>
      <TouchableOpacity style={styles.button} onPress={() => {}}>
         <Text style={styles.buttonText}>Add to myDrops</Text>
@@ -32,17 +33,23 @@ const styles = StyleSheet.create({
   },
   image: {
     borderRadius: 12,
-    height: 100,
+    height: 120,
     width: 100,
   },
   title: {
     alignItems: 'center'
+  },
+  medText: {
+    fontWeight: 'bold',
+    fontSize: 32,
+
   },
    button: {
     backgroundColor: '#00B4D8',
     padding: 10,
     borderRadius: 5,
     marginBottom: 12,
+    marginTop: 16,
     width: 150,
   },
   buttonText: {
