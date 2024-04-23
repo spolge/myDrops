@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View , Image, ScrollView} from 'react-native';
 import image from '../assets/AmslerGrid.png'
 
-export default function Monitor() {
+export default function MonitorAmsler() {
   return (
     <ScrollView style = {styles.container}>
       <View style = {styles.titleAndGrid}>
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   title: {
-    marginTop: 60,
+    marginTop: 10,
     fontSize: 24,
     marginBottom: 12,
   },

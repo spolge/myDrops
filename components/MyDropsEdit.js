@@ -11,6 +11,7 @@ export default function MyDropsEdit({ route: { params: { med } } }) {
   const [eye, setEye] = useState('');
 
   const url = 'http://10.10.22.37:3000/medications/delete';
+  const putUrl = 'http://10.10.22.37:3000/medications/edit';
 
   const deleteMed = async () => {
     await fetch(url, {
@@ -23,13 +24,43 @@ export default function MyDropsEdit({ route: { params: { med } } }) {
     });
     navigation.navigate('myDrops');
   };
+  
 
-  const handleSubmit = () => {
-    console.log('Frequency:', frequency);
-    console.log('Eye:', eye);
-
-    // navigation.navigate('myDrops');
+  const handleSubmit = async () => {
+    await fetch(putUrl, {
+      method: 'PUT',
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: med.name,
+        frequency: frequency,
+        eye: eye
+      }),
+    });
+    navigation.navigate('myDrops');
   };
+    
+  
+//   fetch('https://your-api-endpoint.com/resource', {
+//   method: 'PUT',
+//   headers: {
+//     'Content-Type': 'application/json',
+//     // Add any other headers your API requires
+//   },
+//   body: JSON.stringify({
+//     // Include the data you want to send in the request body
+//     key1: 'value1',
+//     key2: 'value2',
+//     // Add any other data you want to send
+//   }),
+// })
+
+// console.log('Frequency:', frequency);
+    // console.log('Eye:', eye);
+
+    // // navigation.navigate('myDrops');
 
   return (
     <View style={styles.layout}>
@@ -80,6 +111,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     height: '95%',
     position: 'relative',
+    backgroundColor: 'white'
   },
   image: {
     borderRadius: 12,

@@ -2,10 +2,11 @@ import React, {useEffect, useState} from 'react';
 import { StyleSheet } from 'react-native';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialCommunityIcons, FontAwesome, Feather, FontAwesome6 } from '@expo/vector-icons';
-import Monitor from '../Monitor';
+import Monitor from '../MonitorAmsler';
 import settings from '../Settings';
 import MyDropsNavigator from '../MyDropsNavigator';
 import MedListNavigator from '../MedListNavigator';
+import MonitorNavigator from '../MonitorNavigator';
 
 const Tab = createBottomTabNavigator();
 
@@ -34,7 +35,7 @@ export default function MainNavigator() {
       />
       <Tab.Screen
         name='Monitor'
-        component={Monitor}
+        component={MonitorNavigator}
         options={{
           tabBarIcon: () => <FontAwesome6 name="eye-low-vision" size={24} color="black" />,
           headerShown: false,

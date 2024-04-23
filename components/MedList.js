@@ -32,6 +32,7 @@ export default function MedList() {
       <TextInput
         style={styles.input}
         placeholder="Search..."
+        placeholderTextColor="black"
         value={searchQuery}
         onChangeText={(text) => setSearchQuery(text)}
       />
@@ -61,11 +62,12 @@ const styles = StyleSheet.create({
   },
   input: {
     height: 40,
-    borderColor: 'gray',
+    borderColor: 'black',
     borderWidth: 1,
     paddingHorizontal: 8,
     width: 240,
     borderRadius: 16,
     marginTop: 10,
+    
   },
 });

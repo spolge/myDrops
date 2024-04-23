@@ -57,24 +57,19 @@ async function removeMedicationFromPatient(medname) {
   return patient;
 }
 ``
-async function editPatientMedication (medName, medEye, medFreq){
+async function editPatientMedication (medName, medFreq, medEye){
 
-  let patient = await Patients.findOne({ email: 'sampolge@gmail' }).populate('medication')
+  const medicine = await Medications.findOne({ name: medName }).exec();
 
-  let medication = patient.medication.find(med => med.name === medName);
-
-  if(medication.eye !== medEye){
-    medication.eye = medEye;
+  if(medicine.frequency !== medFreq){
+    medicine.frequency = medFreq;
   }
 
-  if(medication.frequency !== medFreq){
-    medication.frequency = medFreq;
+  if(medicine.eye !== medEye){
+    medicine.eye = medEye;
   }
 
-  await patient.save();
-
-    // Find and return patient with populated medication field
-    return patient;
+  await medicine.save();
 
   }
 
