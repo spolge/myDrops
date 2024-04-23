@@ -6,6 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 import image from '../assets/singledrop.webp';
 
 export default function MyDropsEdit({ route: { params: { med } } }) {
+  const navigation = useNavigation();
   
   const [frequency, setFrequency] = useState('');
   const [eye, setEye] = useState('');
