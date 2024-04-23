@@ -2,20 +2,15 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { StyleSheet, View, Text, Dimensions, TouchableOpacity, TextInput } from 'react-native';
 import { useNavigation } from "@react-navigation/native";
 import { useFocusEffect } from '@react-navigation/native';
-import RNPickerSelect from 'react-native-picker-select';
 import { LineChart } from 'react-native-chart-kit';
 import { ScrollView } from 'react-native-gesture-handler';
 
 export default function MonitorPressure() {
   const [pressure, setPressure] = useState([]);
-  const [date, setDate] = useState('');
-  const [rightEyePressure, setRightEyePressure] = useState('');
-  const [leftEyePressure, setLeftEyePressure] = useState('');
-
+ 
   const navigation = useNavigation();
 
   const url1 = 'http://10.10.22.37:3000/pressure';
-  const url2 = 'http://10.10.22.37:3000/pressure/add';
 
   const getPressure = async () => {
     try {
@@ -27,21 +22,9 @@ export default function MonitorPressure() {
     } 
   };
 
-  const handleSubmit = async () => {
-    await fetch(url2, {
-      method: 'POST',
-      mode: 'cors',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        date: date,
-        rightEye: rightEyePressure,
-        leftEye: leftEyePressure
-      }),
-    });
-    navigation.navigate('Monitor Pressure');
-  };
+  const moveToEdit = () => {
+    navigation.navigate('Input Pressure')
+  }
 
   useFocusEffect(
     useCallback(() => {
@@ -75,7 +58,6 @@ export default function MonitorPressure() {
 
   return (
     <ScrollView>
-      <Text>IntraOcular Pressure Monitor</Text>
       <Text>Right Eye</Text>
       {pressure.length < 1 ? <Text>Pressures Loading</Text> :
         <LineChart
@@ -118,49 +100,13 @@ export default function MonitorPressure() {
             borderRadius: 16
           }}
         />
-      }
-
-      <TextInput
-        style={styles.input}
-        onChangeText={text => setRightEyePressure(text)}
-        value={rightEyePressure}
-        placeholder="Right Eye Pressure"
-        keyboardType="numeric"
-      />
-      <TextInput
-        style={styles.input}
-        onChangeText={text => setLeftEyePressure(text)}
-        value={leftEyePressure}
-        placeholder="Left Eye Pressure"
-        keyboardType="numeric"
-      />
-
-      <RNPickerSelect
-        placeholder={{
-          label: 'Which Month?',
-          value: null,
-        }}
-        onValueChange={(value) => setDate(value)}
-        items={[
-          { label: 'Jan', value: 'Jan' },
-          { label: 'Feb', value: 'Feb' },
-          { label: 'Mar', value: 'Mar' },
-          { label: 'Apr', value: 'Apr' },
-          { label: 'May', value: 'May' },
-          { label: 'Jun', value: 'Jun' },
-          { label: 'Jul', value: 'Jul' },
-          { label: 'Aug', value: 'Aug' },
-          { label: 'Sep', value: 'Sep' },
-          { label: 'Oct', value: 'Oct' },
-          { label: 'Nov', value: 'Nov' },
-          { label: 'Dec', value: 'Dec' },
-        ]}
-        style={pickerSelectStyles}
-      />
-
-      <TouchableOpacity style={styles.button} onPress={handleSubmit}>
-        <Text style={styles.buttonText}>Submit</Text>
+      }  
+      <View style = {styles.container}>
+       <TouchableOpacity style={styles.button} onPress={moveToEdit}>
+        <Text style={styles.buttonText}>Record new intra ocular pressure</Text>
       </TouchableOpacity>
+      </View>
+
 
     </ScrollView>
   );
@@ -168,8 +114,6 @@ export default function MonitorPressure() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center'
   },
@@ -186,7 +130,8 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 5,
     marginBottom: 12,
-    width: 150,
+    marginTop: 45,
+    width: 300,
     alignItems: 'center',
   },
   buttonText: {

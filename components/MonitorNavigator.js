@@ -4,7 +4,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import MonitorAmsler from './MonitorAmsler';
 import MonitorInstructions from './MonitorInstructions';
 import MonitorHome from './MonitorHome';
-import MonitorPressure from './MonitorPressure';
+import MonitorPressureNavigator from './MonitorPressureNavigator';
 
 
 export default function MonitorNavigator() {
@@ -16,7 +16,7 @@ export default function MonitorNavigator() {
         <Stack.Screen name="Home" component={MonitorHome} options={{ headerShown: false }}/>
         <Stack.Screen name="Drop Instructions" component={MonitorInstructions}/>
         <Stack.Screen name="Amsler Grid" component={MonitorAmsler}/>
-        <Stack.Screen name="Monitor Pressure" component={MonitorPressure}/>
+        <Stack.Screen name="Monitor Pressure" component={MonitorPressureNavigator} options={{ headerShown: false }}/>
       </Stack.Navigator>
   );
 }
