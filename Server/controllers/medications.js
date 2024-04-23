@@ -74,7 +74,7 @@ async function deletePatientsMed(req, res){
 
 async function editPatientsMed(req, res){
   try { 
-    let edit = await model.removeMedicationFromPatient(/* this needs to bed edited */);
+    let edit = await model.editPatientMedication(req.body.name, req.body.eye, req.body.frequency);
     res.status(201).send(edit);
   } catch (err) {
     console.log(err);

@@ -38,14 +38,12 @@ export default function MyDrops() {
   
   return (
     <View style={styles.container}>
-      <Text style={styles.heading}>Users EyeDrops</Text>
+      <Text style={styles.heading}>SPolges EyeDrops</Text>
       <ScrollView style={styles.mymedlist}>
       
         {medArr.length<1? (
         <NoMedSkeleton/>
         )
-        
-        
         : medArr.map((med) => <UsersMedications key = {med._id} med = {med} ></UsersMedications>)}
       
       </ScrollView>

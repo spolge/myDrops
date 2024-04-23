@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import { StyleSheet } from 'react-native';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { MaterialCommunityIcons, FontAwesome, Feather } from '@expo/vector-icons';
-import Calendar from '../Calendar';
+import { MaterialCommunityIcons, FontAwesome, Feather, FontAwesome6 } from '@expo/vector-icons';
+import Monitor from '../Monitor';
 import settings from '../Settings';
 import MyDropsNavigator from '../MyDropsNavigator';
 import MedListNavigator from '../MedListNavigator';
@@ -33,10 +33,10 @@ export default function MainNavigator() {
         }}
       />
       <Tab.Screen
-        name='Calendar'
-        component={Calendar}
+        name='Monitor'
+        component={Monitor}
         options={{
-          tabBarIcon: () => <Feather name="calendar" size={24} color="black" />,
+          tabBarIcon: () => <FontAwesome6 name="eye-low-vision" size={24} color="black" />,
           headerShown: false,
           tabBarLabelStyle: { color: 'black' }
         }}

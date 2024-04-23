@@ -1,6 +1,8 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 import image from '../assets/singledrop.webp'
 import {useNavigation } from "@react-navigation/native";
+import { Entypo } from '@expo/vector-icons';
+import { Feather } from '@expo/vector-icons';
 
 export default function UsersMedications({med}) {
   const navigation = useNavigation();
@@ -11,17 +13,20 @@ export default function UsersMedications({med}) {
   };
 
   return (
-    <TouchableOpacity  onPress={handleEditScreen}>
-   <View style = {styles.layout}>
+    <View style = {styles.layout}>
     <Image source={image} style = {styles.image} />
     <View style = {styles.content}>
+      <View style = {styles.titleAndEdit}>
       <Text style = {styles.title}>{med.name}</Text>
+     <TouchableOpacity  onPress={handleEditScreen}>
+      <Feather name="edit" size={20} color="black" />
+    </TouchableOpacity>
+
+      </View>
       <Text style = {styles.description}>Which Eye</Text>
       <Text style = {styles.description}>take this medication {med.frequency}x daily</Text>
-      <Text style = {styles.description}>reminders</Text>
     </View>
   </View>      
-    </TouchableOpacity>
   );
 }
 
@@ -38,6 +43,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     height: 100,
     width: 100,
+    flex: 1
   },
   title: {
     fontWeight: '600',
@@ -47,6 +53,12 @@ const styles = StyleSheet.create({
   content: {
     flex: 2,
     padding: 12,
+  },
+  titleAndEdit: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+
+
   },
   
   description: {
