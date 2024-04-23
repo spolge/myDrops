@@ -45,32 +45,38 @@ async function removeMedicationFromPatient(medname) {
   
   const medicine = await Medications.findOne({ name: medname }).exec();
   let patient = await Patients.findOne({ email: 'sampolge@gmail' });
-
   // Remove medicine from patient's medication array
   await Patients.updateOne(
     { email: 'sampolge@gmail' },
     { $pull: { medication: medicine._id } }
   );
-
   // Find and return patient with populated medication field
   patient = await Patients.findOne({ email: 'sampolge@gmail' }).populate('medication');
   return patient;
 }
 ``
 async function editPatientMedication (medName, medFreq, medEye){
-
   const medicine = await Medications.findOne({ name: medName }).exec();
-
   if(medicine.frequency !== medFreq){
     medicine.frequency = medFreq;
   }
-
   if(medicine.eye !== medEye){
     medicine.eye = medEye;
   }
-
   await medicine.save();
+  }
 
+
+  async function addToPatientPressure (dateName, rePressure, lePressure){
+    let patient = await Patients.findOne({ email: 'sampolge@gmail' });
+    patient.pressure.push({date: dateName, rightEye: rePressure, leftEye: lePressure});
+
+    await patient.save();
+      }
+
+  async function getPatientPressure (){
+    let patient = await Patients.findOne({ email: 'sampolge@gmail' });
+    return patient.pressure
   }
 
 
@@ -83,5 +89,7 @@ module.exports = {
   postPatients,
   addMedicationToPatient,
   removeMedicationFromPatient,
-  editPatientMedication
+  editPatientMedication,
+  addToPatientPressure,
+  getPatientPressure,
 };

@@ -6,7 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 import image from '../assets/singledrop.webp';
 
 export default function MyDropsEdit({ route: { params: { med } } }) {
-  const navigation = useNavigation();
+  
   const [frequency, setFrequency] = useState('');
   const [eye, setEye] = useState('');
 
@@ -42,25 +42,6 @@ export default function MyDropsEdit({ route: { params: { med } } }) {
     navigation.navigate('myDrops');
   };
     
-  
-//   fetch('https://your-api-endpoint.com/resource', {
-//   method: 'PUT',
-//   headers: {
-//     'Content-Type': 'application/json',
-//     // Add any other headers your API requires
-//   },
-//   body: JSON.stringify({
-//     // Include the data you want to send in the request body
-//     key1: 'value1',
-//     key2: 'value2',
-//     // Add any other data you want to send
-//   }),
-// })
-
-// console.log('Frequency:', frequency);
-    // console.log('Eye:', eye);
-
-    // // navigation.navigate('myDrops');
 
   return (
     <View style={styles.layout}>

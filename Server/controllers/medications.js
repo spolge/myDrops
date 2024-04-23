@@ -82,6 +82,26 @@ async function editPatientsMed(req, res){
   }
 }
 
+async function addPatientPressure(req, res){
+  const {date,rightEye,leftEye} = req.body;
+  try { 
+    let pressure = await model.addToPatientPressure(date,rightEye,leftEye);
+    res.status(201).send(pressure);
+  } catch (err) {
+    console.log(err);
+    res.send(err).status(500);
+  }
+}
+
+async function getPatientPressure(req, res){
+  try { 
+    let pressure = await model.getPatientPressure();
+    res.status(201).send(pressure);
+  } catch (err) {
+    console.log(err);
+    res.send(err).status(500);
+  }
+}
 
 
 
@@ -93,5 +113,7 @@ module.exports = {
   getOnePatient,
   addMedicationToPatient,
   deletePatientsMed,
-  editPatientsMed
+  editPatientsMed,
+  addPatientPressure,
+  getPatientPressure,
 }
